@@ -1,0 +1,107 @@
+/* --- Global Font & Minimalist Vibe --- */
+/* Uses Inter for clean interface and JetBrains Mono for clean data/code elements */
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap"
+
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif;
+    color: #111111; /* Default text color is dark for visibility */
+}
+
+/* --- Main App Container (Background: Concerto #D9D9D9) --- */
+.stApp {
+    background-color: #D9D9D9; 
+}
+
+/* --- Sidebar Styling (Background: Glacial Salt #B1BBC8) --- */
+section[data-testid="stSidebar"] {
+    background-color: #B1BBC8;
+    border-right: 1px solid #011f54; /* Deep Blue Accent */
+}
+
+/* --- Chat Message Bubbles (Minimalist & High Contrast) --- */
+.stChatMessage {
+    background-color: transparent;
+    border: none;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+/* --- User Message Specifics (White Bubble on light background) --- */
+div[data-testid="stChatMessage"][data-author="user"] {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 15px;
+    color: #111111;
+}
+
+/* --- Assistant Message Specifics (FIXED: Dark text on light gray background) --- */
+div[data-testid="stChatMessage"][data-author="assistant"] {
+    background-color: #E0E0E0; /* Slightly off-white for distinction */
+    border: 1px solid #B1BBC8; 
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    
+    /* === FIX: Force color to be dark === */
+    color: #111111 !important; 
+}
+
+/* Ensure ALL nested elements (like the markdown list text) are dark */
+div[data-testid="stChatMessage"][data-author="assistant"] * {
+    color: #111111 !important; 
+}
+
+/* --- Buttons (Deep Blue #2A4D88) --- */
+.stButton > button {
+    background-color: #dce0e9;
+    color: #FFFFFF !important;
+    border: 1px solid #111111;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.stButton > button:hover {
+    background-color: #011f54; /* Ocean City for hover */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* --- File Uploader --- */
+div[data-testid="stFileUploader"] {
+    background-color: #FFFFFF;
+    border: 1px solid #B1BBC8;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* --- Header Styling (Deep Blue) --- */
+h1, h2, h3 {
+    color: #011f54 !important;
+    font-family: 'JetBrains Mono', monospace; 
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding-bottom: 5px;
+}
+
+/* --- Input Fields --- */
+div[data-testid="stForm"] .stTextInput input {
+    background-color: #FFFFFF;
+    border: 1px solid #B1BBC8;
+    color: #333333;
+    border-radius: 8px;
+}
+
+#MainMenu, footer {
+    visibility: hidden;
+}
+
+/* DO NOT hide header – it contains the sidebar toggle button */
+header {
+    visibility: visible !important;
+}
+
+section[data-testid="stSidebar"] * {
+    color: #000 !important;
+}
